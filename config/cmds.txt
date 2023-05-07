@@ -1,0 +1,5 @@
+robot -i sanity TC1_Get_Response.robot(include tags)
+robot -e sanity TC1_Get_Response.robot(exclude tags)
+Forced Tags==>Force Tags   HELLOS
+at settings level
+Default tags ==>applied to those test case which do not have any tag associated with it.

@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Rebot 5.1b2 (Python 3.11.1 on win32)" generated="20230507 16:51:05.440" rpa="false" schemaversion="3">
+<suite id="s1" name="TC1 Get Response" source="C:\Users\exxxsik\PycharmProjects\PR_API\TestCases\TC1_Get_Response.robot">
+<kw name="SDG_BNE_SUITE_SETUP" library="common_keywords" type="SETUP">
+<kw name="Log" library="BuiltIn">
+<arg>${CONFIG_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:02.911" level="INFO">C:\Users\exxxsik\PycharmProjects\PR_API\config/../Resources</msg>
+<status status="PASS" starttime="20230507 16:51:02.911" endtime="20230507 16:51:02.911"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Which-Lab}</var>
+<arg>${EnvironmentValue}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230507 16:51:02.911" level="INFO">${Which-Lab} = DATA_SITE_1</msg>
+<status status="PASS" starttime="20230507 16:51:02.911" endtime="20230507 16:51:02.911"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${Which-Lab}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230507 16:51:02.912" level="INFO">${Which-Lab} = DATA_SITE_1</msg>
+<status status="PASS" starttime="20230507 16:51:02.912" endtime="20230507 16:51:02.912"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${CONFIG_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:02.912" level="INFO">C:\Users\exxxsik\PycharmProjects\PR_API\config/../Resources</msg>
+<status status="PASS" starttime="20230507 16:51:02.912" endtime="20230507 16:51:02.912"/>
+</kw>
+<kw name="Load Environment Variables" library="EnvLoadjson">
+<arg>${CONFIG_PATH}</arg>
+<arg>${EnvironmentValue}</arg>
+<msg timestamp="20230507 16:51:02.913" level="INFO">${EnvironmentValue} = DATA_SITE_1</msg>
+<msg timestamp="20230507 16:51:02.914" level="INFO">${get_student_info} = /api/users</msg>
+<msg timestamp="20230507 16:51:02.914" level="INFO">${EnvironmentValue} = CN_SITE1</msg>
+<msg timestamp="20230507 16:51:02.915" level="INFO">${API_Base_Endpoint} = https://reqres.in</msg>
+<msg timestamp="20230507 16:51:02.915" level="INFO">This is path==&gt; C:\Users\exxxsik\PycharmProjects\PR_API\TestCases
+Current Dir: C:\Users\exxxsik\PycharmProjects\PR_API\TestCases
+C:\Users\exxxsik\PycharmProjects\PR_API\config/../Resources\DATA_SITE_1.json
+Current Dir:===&gt; C:\Users\exxxsik\PycharmProjects\PR_API\TestCases</msg>
+<status status="PASS" starttime="20230507 16:51:02.912" endtime="20230507 16:51:02.915"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:02.910" endtime="20230507 16:51:02.915"/>
+</kw>
+<test id="s1-t1" name="TC_001_Get_ListUser" line="18">
+<kw name="WELCOME_START" library="common_keywords" type="SETUP">
+<doc>This is welcome</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:02.920" level="INFO">This is welcome</msg>
+<status status="PASS" starttime="20230507 16:51:02.916" endtime="20230507 16:51:02.920"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:02.916" endtime="20230507 16:51:02.920"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>'${get_student_info}'</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:02.922" level="INFO">'/api/users'</msg>
+<status status="PASS" starttime="20230507 16:51:02.921" endtime="20230507 16:51:02.922"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${API_Base_Endpoint}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230507 16:51:02.923" level="INFO">Creating Session using : alias=mysession, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230507 16:51:02.922" endtime="20230507 16:51:02.923"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>url=${get_student_info}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230507 16:51:03.058" level="INFO">GET Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230507 16:51:03.058" level="INFO">GET Response : url=https://reqres.in/api/users 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 07 May 2023 11:21:04 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"3e4-2RLXvr5wTg9YQ6aH95CkYoFNuO8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '6449', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=ouqrl6FAqnAPgH3nl4hdZDKZ6VhiyB0sm9QW4R6tS25i21g8iq4oVtFiRfroSb%2FwMN%2BCAza8qpe1kAeYLADfur%2BiNwXxZpP0rPGWkXXHBUMxqeWgMWnz%2FZEB0g%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '7c3913c82bf984fe-BOM', 'Content-Encoding': 'gzip'} 
+ body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20230507 16:51:03.058" level="INFO">C:\Users\exxxsik\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230507 16:51:03.059" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:02.923" endtime="20230507 16:51:03.059"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.060" level="INFO">&lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:03.059" endtime="20230507 16:51:03.060"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.062" level="INFO">200</msg>
+<status status="PASS" starttime="20230507 16:51:03.061" endtime="20230507 16:51:03.062"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${json_response}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230507 16:51:03.064" level="INFO">${json_response} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
+<status status="PASS" starttime="20230507 16:51:03.062" endtime="20230507 16:51:03.064"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${json_response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.065" level="INFO">{'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, {'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'}, {'id': 4, 'email': 'eve.holt@reqres.in', 'first_name': 'Eve', 'last_name': 'Holt', 'avatar': 'https://reqres.in/img/faces/4-image.jpg'}, {'id': 5, 'email': 'charles.morris@reqres.in', 'first_name': 'Charles', 'last_name': 'Morris', 'avatar': 'https://reqres.in/img/faces/5-image.jpg'}, {'id': 6, 'email': 'tracey.ramos@reqres.in', 'first_name': 'Tracey', 'last_name': 'Ramos', 'avatar': 'https://reqres.in/img/faces/6-image.jpg'}], 'support': {'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contributions towards server costs are appreciated!'}}</msg>
+<status status="PASS" starttime="20230507 16:51:03.064" endtime="20230507 16:51:03.066"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>@{data_response_id_1}</var>
+<arg>${json_response}</arg>
+<arg>data[0]</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20230507 16:51:03.084" level="INFO">@{data_response_id_1} = [ {'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'} ]</msg>
+<status status="PASS" starttime="20230507 16:51:03.066" endtime="20230507 16:51:03.084"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${value_id}</var>
+<arg>@{data_response_id_1}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230507 16:51:03.085" level="INFO">${value_id} = 1</msg>
+<status status="PASS" starttime="20230507 16:51:03.084" endtime="20230507 16:51:03.085"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${value_id_string}</var>
+<arg>${value_id}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230507 16:51:03.086" level="INFO">${value_id_string} = 1</msg>
+<status status="PASS" starttime="20230507 16:51:03.085" endtime="20230507 16:51:03.086"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${value_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.086" level="INFO">1</msg>
+<status status="PASS" starttime="20230507 16:51:03.086" endtime="20230507 16:51:03.087"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${value_id_string}</arg>
+<arg>1</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230507 16:51:03.087" endtime="20230507 16:51:03.087"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${value_firstname}</var>
+<arg>@{data_response_id_1}</arg>
+<arg>first_name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230507 16:51:03.088" level="INFO">${value_firstname} = George</msg>
+<status status="PASS" starttime="20230507 16:51:03.087" endtime="20230507 16:51:03.088"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${value_firstname}</arg>
+<arg>George</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230507 16:51:03.088" endtime="20230507 16:51:03.089"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>@{data_response_id_2}</var>
+<arg>${json_response}</arg>
+<arg>data[1]</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20230507 16:51:03.105" level="INFO">@{data_response_id_2} = [ {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'} ]</msg>
+<status status="PASS" starttime="20230507 16:51:03.089" endtime="20230507 16:51:03.105"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>@{data_response_id_3}</var>
+<arg>${json_response}</arg>
+<arg>data[2]</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20230507 16:51:03.118" level="INFO">@{data_response_id_3} = [ {'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'} ]</msg>
+<status status="PASS" starttime="20230507 16:51:03.105" endtime="20230507 16:51:03.118"/>
+</kw>
+<kw name="WELCOME_END" library="common_keywords" type="TEARDOWN">
+<doc>This is welcome end</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome end</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.119" level="INFO">This is welcome end</msg>
+<status status="PASS" starttime="20230507 16:51:03.119" endtime="20230507 16:51:03.119"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:03.119" endtime="20230507 16:51:03.119"/>
+</kw>
+<doc>Following is details
+
+
+ 1.This is second line
+
+
+ 2.This is second line
+
+
+ 3.This is second line
+
+
+ 4.This is second line</doc>
+<tag>Sanity</tag>
+<timeout value="1 second"/>
+<status status="PASS" starttime="20230507 16:51:02.915" endtime="20230507 16:51:03.119"/>
+</test>
+<test id="s1-t2" name="TC_002 create new resource" line="46">
+<kw name="WELCOME_START" library="common_keywords" type="SETUP">
+<doc>This is welcome</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.121" level="INFO">This is welcome</msg>
+<status status="PASS" starttime="20230507 16:51:03.120" endtime="20230507 16:51:03.121"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:03.120" endtime="20230507 16:51:03.121"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>addData</arg>
+<arg>${API_Base_Endpoint}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230507 16:51:03.122" level="INFO">Creating Session using : alias=addData, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230507 16:51:03.122" endtime="20230507 16:51:03.123"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{body}</var>
+<arg>"name"=dhoni</arg>
+<arg>"job"="Manager"</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230507 16:51:03.123" level="INFO">&amp;{body} = { "name"=dhoni | "job"="Manager" }</msg>
+<status status="PASS" starttime="20230507 16:51:03.123" endtime="20230507 16:51:03.123"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{header}</var>
+<arg>"Content-Type"=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230507 16:51:03.123" level="INFO">&amp;{header} = { "Content-Type"=application/json }</msg>
+<status status="PASS" starttime="20230507 16:51:03.123" endtime="20230507 16:51:03.123"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>addData</arg>
+<arg>/api/users</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20230507 16:51:03.124" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20230507 16:51:03.595" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', '"Content-Type"': 'application/json', 'Content-Length': '40'} 
+ body=%22name%22=dhoni&amp;%22job%22=%22Manager%22 
+ </msg>
+<msg timestamp="20230507 16:51:03.595" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Sun, 07 May 2023 11:21:04 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '51', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"33-f9c0fRJcompCxMHCC540biGqkPc"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=bNjlZOJYS8mNniHYyYFcgx%2FbWpZFa3dWGk19rzd0PrR8C8RJCjvtS35KIbinJ%2B6itmBd56zakaY%2BtpLeDKWbyRoSZDAbG2cLETIGob3pQnOXKJGzXK%2FlAEzTcA%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7c3913c93ac36ec4-BOM'} 
+ body={"id":"738","createdAt":"2023-05-07T11:21:04.499Z"} 
+ </msg>
+<msg timestamp="20230507 16:51:03.596" level="INFO">C:\Users\exxxsik\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230507 16:51:03.597" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:03.124" endtime="20230507 16:51:03.597"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.598" level="INFO">&lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:03.597" endtime="20230507 16:51:03.598"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.600" level="INFO">201</msg>
+<status status="PASS" starttime="20230507 16:51:03.598" endtime="20230507 16:51:03.600"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.603" level="INFO">{"id":"738","createdAt":"2023-05-07T11:21:04.499Z"}</msg>
+<status status="PASS" starttime="20230507 16:51:03.600" endtime="20230507 16:51:03.603"/>
+</kw>
+<kw name="WELCOME_END" library="common_keywords" type="TEARDOWN">
+<doc>This is welcome end</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome end</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.604" level="INFO">This is welcome end</msg>
+<status status="PASS" starttime="20230507 16:51:03.604" endtime="20230507 16:51:03.604"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:03.603" endtime="20230507 16:51:03.604"/>
+</kw>
+<timeout value="1 second"/>
+<status status="PASS" starttime="20230507 16:51:03.120" endtime="20230507 16:51:03.604"/>
+</test>
+<test id="s1-t3" name="TC_003 delete new resource" line="56">
+<kw name="WELCOME_START" library="common_keywords" type="SETUP">
+<doc>This is welcome</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:03.616" level="INFO">This is welcome</msg>
+<status status="PASS" starttime="20230507 16:51:03.615" endtime="20230507 16:51:03.616"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:03.614" endtime="20230507 16:51:03.616"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>deletedata</arg>
+<arg>${API_Base_Endpoint}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230507 16:51:03.618" level="INFO">Creating Session using : alias=deletedata, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230507 16:51:03.617" endtime="20230507 16:51:03.618"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{body}</var>
+<arg>"name"=dhoni</arg>
+<arg>"job"="Manager"</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230507 16:51:03.619" level="INFO">&amp;{body} = { "name"=dhoni | "job"="Manager" }</msg>
+<status status="PASS" starttime="20230507 16:51:03.618" endtime="20230507 16:51:03.619"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{header}</var>
+<arg>"Content-Type"=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230507 16:51:03.619" level="INFO">&amp;{header} = { "Content-Type"=application/json }</msg>
+<status status="PASS" starttime="20230507 16:51:03.619" endtime="20230507 16:51:03.619"/>
+</kw>
+<kw name="Delete Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletedata</arg>
+<arg>/api/users/1</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<msg timestamp="20230507 16:51:03.619" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg timestamp="20230507 16:51:04.106" level="INFO">DELETE Request : url=https://reqres.in/api/users/1 
+ path_url=/api/users/1 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20230507 16:51:04.106" level="INFO">DELETE Response : url=https://reqres.in/api/users/1 
+ status=204, reason=No Content 
+ headers={'Date': 'Sun, 07 May 2023 11:21:05 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=jxnita71B3qi5N1aRyVSfijm35j8aiDARKm2q7oM3lBspqRvcTqIGm1Fxm6fcbSeZ2l7Mq1uOF8L9y82465QVWZzr0L93opJGb8e%2B8Eq55a39%2FfEpXxuZyPURQ%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7c3913cc5da06ee3-BOM'} 
+ body=None 
+ </msg>
+<msg timestamp="20230507 16:51:04.106" level="INFO">C:\Users\exxxsik\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230507 16:51:04.106" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:03.619" endtime="20230507 16:51:04.106"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.109" level="INFO">&lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:04.107" endtime="20230507 16:51:04.109"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.111" level="INFO">204</msg>
+<status status="PASS" starttime="20230507 16:51:04.109" endtime="20230507 16:51:04.112"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.114" level="INFO"/>
+<status status="PASS" starttime="20230507 16:51:04.112" endtime="20230507 16:51:04.114"/>
+</kw>
+<kw name="WELCOME_END" library="common_keywords" type="TEARDOWN">
+<doc>This is welcome end</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome end</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.115" level="INFO">This is welcome end</msg>
+<status status="PASS" starttime="20230507 16:51:04.115" endtime="20230507 16:51:04.115"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:04.114" endtime="20230507 16:51:04.116"/>
+</kw>
+<tag>Regression</tag>
+<timeout value="1 second"/>
+<status status="PASS" starttime="20230507 16:51:03.605" endtime="20230507 16:51:04.116"/>
+</test>
+<test id="s1-t4" name="TC_004 put new resource" line="67">
+<kw name="WELCOME_START" library="common_keywords" type="SETUP">
+<doc>This is welcome</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.118" level="INFO">This is welcome</msg>
+<status status="PASS" starttime="20230507 16:51:04.117" endtime="20230507 16:51:04.119"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:04.117" endtime="20230507 16:51:04.119"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>putData</arg>
+<arg>${API_Base_Endpoint}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230507 16:51:04.120" level="INFO">Creating Session using : alias=putData, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230507 16:51:04.119" endtime="20230507 16:51:04.120"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{body}</var>
+<arg>"name"=dhoni</arg>
+<arg>"job"="SR.Manager"</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230507 16:51:04.121" level="INFO">&amp;{body} = { "name"=dhoni | "job"="SR.Manager" }</msg>
+<status status="PASS" starttime="20230507 16:51:04.121" endtime="20230507 16:51:04.121"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{header}</var>
+<arg>"Content-Type"=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230507 16:51:04.121" level="INFO">&amp;{header} = { "Content-Type"=application/json }</msg>
+<status status="PASS" starttime="20230507 16:51:04.121" endtime="20230507 16:51:04.122"/>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>putData</arg>
+<arg>/api/users/2</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<msg timestamp="20230507 16:51:04.122" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg timestamp="20230507 16:51:04.595" level="INFO">PUT Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', '"Content-Type"': 'application/json', 'Content-Length': '43'} 
+ body=%22name%22=dhoni&amp;%22job%22=%22SR.Manager%22 
+ </msg>
+<msg timestamp="20230507 16:51:04.595" level="INFO">PUT Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 07 May 2023 11:21:05 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '40', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"28-2pzQBEWH6cLCWpxrFPEIGRPrXug"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=caycAPRhYHCEvGGY1dsPjW%2FSlsfYvjxPqJ1mXkTqmYYk3goO%2BTuAobPZUcE2eTo1bjrQW87FTtI8X8D35T5obA97E%2BypZjxbD9QsI8IEGzR1DE1MmKvDjoB2fg%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '7c3913cf7c7ff333-BOM'} 
+ body={"updatedAt":"2023-05-07T11:21:05.503Z"} 
+ </msg>
+<msg timestamp="20230507 16:51:04.595" level="INFO">C:\Users\exxxsik\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230507 16:51:04.595" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:04.122" endtime="20230507 16:51:04.596"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.598" level="INFO">&lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:04.596" endtime="20230507 16:51:04.598"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.600" level="INFO">200</msg>
+<status status="PASS" starttime="20230507 16:51:04.598" endtime="20230507 16:51:04.600"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.602" level="INFO">{"updatedAt":"2023-05-07T11:21:05.503Z"}</msg>
+<status status="PASS" starttime="20230507 16:51:04.600" endtime="20230507 16:51:04.602"/>
+</kw>
+<kw name="WELCOME_END" library="common_keywords" type="TEARDOWN">
+<doc>This is welcome end</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome end</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.603" level="INFO">This is welcome end</msg>
+<status status="PASS" starttime="20230507 16:51:04.603" endtime="20230507 16:51:04.603"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:04.602" endtime="20230507 16:51:04.603"/>
+</kw>
+<tag>Regression</tag>
+<timeout value="1 second"/>
+<status status="PASS" starttime="20230507 16:51:04.116" endtime="20230507 16:51:04.604"/>
+</test>
+<test id="s1-t5" name="TC_002 create new resource with json file" line="79">
+<kw name="WELCOME_START" library="common_keywords" type="SETUP">
+<doc>This is welcome</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.606" level="INFO">This is welcome</msg>
+<status status="PASS" starttime="20230507 16:51:04.605" endtime="20230507 16:51:04.606"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:04.604" endtime="20230507 16:51:04.606"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>addData</arg>
+<arg>${API_Base_Endpoint}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230507 16:51:04.607" level="INFO">Creating Session using : alias=addData, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230507 16:51:04.606" endtime="20230507 16:51:04.607"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{header}</var>
+<arg>"Content-Type"=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230507 16:51:04.608" level="INFO">&amp;{header} = { "Content-Type"=application/json }</msg>
+<status status="PASS" starttime="20230507 16:51:04.607" endtime="20230507 16:51:04.608"/>
+</kw>
+<kw name="READ_JSON_FILE" library="common_keywords">
+<var>${data_FROM_JSON_FILE}</var>
+<kw name="Read Content" library="ReadJSON">
+<var>${data_readed}</var>
+<msg timestamp="20230507 16:51:04.609" level="INFO">C:\Users\exxxsik\PycharmProjects\PR_API\TestCases
+{'name': 'SureshRAina', 'job': 'Manager'}</msg>
+<msg timestamp="20230507 16:51:04.609" level="INFO">${data_readed} = {'name': 'SureshRAina', 'job': 'Manager'}</msg>
+<status status="PASS" starttime="20230507 16:51:04.608" endtime="20230507 16:51:04.609"/>
+</kw>
+<msg timestamp="20230507 16:51:04.610" level="INFO">${data_FROM_JSON_FILE} = {'name': 'SureshRAina', 'job': 'Manager'}</msg>
+<status status="PASS" starttime="20230507 16:51:04.608" endtime="20230507 16:51:04.610"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${data_FROM_JSON_FILE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:04.611" level="INFO">{'name': 'SureshRAina', 'job': 'Manager'}</msg>
+<status status="PASS" starttime="20230507 16:51:04.610" endtime="20230507 16:51:04.611"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>addData</arg>
+<arg>/api/users</arg>
+<arg>data=${data_FROM_JSON_FILE}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20230507 16:51:04.611" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20230507 16:51:05.089" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', '"Content-Type"': 'application/json', 'Content-Length': '28'} 
+ body=name=SureshRAina&amp;job=Manager 
+ </msg>
+<msg timestamp="20230507 16:51:05.089" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Sun, 07 May 2023 11:21:06 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '51', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"33-AdZC5MxE8nmpSHx+oWfJgAZn8CY"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=bVVWWh4jTIKhxqpIUG6bJPYF7bWkEDNXiZqMtTa%2FAd%2BQjeVHpnSqc3bJERvIqjEct%2FBfVFqg6pwsi6bxNg0TS6fuY66lWKXncIA6VpP%2FNFn9mBg9YeqDgqxUDA%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7c3913d29cb3f388-BOM'} 
+ body={"id":"330","createdAt":"2023-05-07T11:21:05.991Z"} 
+ </msg>
+<msg timestamp="20230507 16:51:05.089" level="INFO">C:\Users\exxxsik\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230507 16:51:05.089" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:04.611" endtime="20230507 16:51:05.090"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:05.091" level="INFO">&lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230507 16:51:05.090" endtime="20230507 16:51:05.091"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:05.092" level="INFO">201</msg>
+<status status="PASS" starttime="20230507 16:51:05.091" endtime="20230507 16:51:05.093"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:05.094" level="INFO">{"id":"330","createdAt":"2023-05-07T11:21:05.991Z"}</msg>
+<status status="PASS" starttime="20230507 16:51:05.093" endtime="20230507 16:51:05.095"/>
+</kw>
+<kw name="WELCOME_END" library="common_keywords" type="TEARDOWN">
+<doc>This is welcome end</doc>
+<kw name="Log" library="BuiltIn">
+<arg>This is welcome end</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:05.096" level="INFO">This is welcome end</msg>
+<status status="PASS" starttime="20230507 16:51:05.096" endtime="20230507 16:51:05.097"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:05.095" endtime="20230507 16:51:05.097"/>
+</kw>
+<tag>Regression</tag>
+<timeout value="1 second"/>
+<status status="PASS" starttime="20230507 16:51:04.604" endtime="20230507 16:51:05.097"/>
+</test>
+<kw name="SUITE_END" library="common_keywords" type="TEARDOWN">
+<doc>suite end</doc>
+<kw name="Log" library="BuiltIn">
+<arg>suite end</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230507 16:51:05.100" level="INFO">suite end</msg>
+<status status="PASS" starttime="20230507 16:51:05.099" endtime="20230507 16:51:05.100"/>
+</kw>
+<status status="PASS" starttime="20230507 16:51:05.098" endtime="20230507 16:51:05.100"/>
+</kw>
+<doc>[https://pabot.org/?ref=log|Pabot] result from 1 executions.</doc>
+<status status="PASS" starttime="20230507 16:51:02.621" endtime="20230507 16:51:05.100"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">Regression</stat>
+<stat pass="1" fail="0" skip="0">Sanity</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="TC1 Get Response">TC1 Get Response</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230507 16:51:03.124" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20230507 16:51:03.619" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg timestamp="20230507 16:51:04.122" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg timestamp="20230507 16:51:04.611" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+</errors>
+</robot>

@@ -1,0 +1,6 @@
+{
+  "${get_student_info}": "/api/users",
+  "${EnvironmentValue}": "CN_SITE1",
+  "${API_Base_Endpoint}": "https://reqres.in"
+
+}
