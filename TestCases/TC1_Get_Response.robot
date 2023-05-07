@@ -16,7 +16,7 @@ Suite Teardown   SUITE_END
 
 *** Test Cases ***
 TC_001_Get_ListUser
-     [Tags]  Sanity
+     [Tags]  Sanity   Regression
      [Documentation]  Following is details
      ...    ${\n}   1.This is second line
      ...    ${\n}   2.This is second line
