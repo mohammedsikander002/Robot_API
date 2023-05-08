@@ -87,3 +87,17 @@ TC_002 create new resource with json file
      log    ${response}
      log    ${response.status_code}
      log    ${response.content}
+
+TC_001 FOR LOOP TEST CASE
+  FOR  ${i}  IN  @{list}
+     log  i
+     IF    $i == "b"
+           log  value found
+           BREAK
+     END
+  END
+  Log   ${Dicts}
+  FOR  ${KEY}   ${VALUE}  IN  &{Dicts}
+       Log   ${KEY}
+       Log   ${VALUE}
+  END
