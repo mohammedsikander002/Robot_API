@@ -89,7 +89,7 @@ TC_002 create new resource with json file
      log    ${response.content}
 
 TC_001 FOR LOOP TEST CASE
-  [Documentation]   Comments Added
+  [Documentation]   Comments Added with TEST
   [Tags]   LOOP
   FOR  ${i}  IN  element1   element2   element3
      log  i
