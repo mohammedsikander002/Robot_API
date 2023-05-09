@@ -89,15 +89,17 @@ TC_002 create new resource with json file
      log    ${response.content}
 
 TC_001 FOR LOOP TEST CASE
-  FOR  ${i}  IN  @{list}
+  [Tags]   LOOP
+  FOR  ${i}  IN  element1   element2   element3
      log  i
-     IF    $i == "b"
+     IF    $i == "element2"
            log  value found
            BREAK
      END
   END
-  Log   ${Dicts}
-  FOR  ${KEY}   ${VALUE}  IN  &{Dicts}
+  &{dictionary}=  Create Dictionary   e1="FirstElement"   e2="FirstElement"   e3="FirstElement"
+  Log   ${dictionary}
+  FOR  ${KEY}   ${VALUE}  IN  &{dictionary}
        Log   ${KEY}
        Log   ${VALUE}
   END
