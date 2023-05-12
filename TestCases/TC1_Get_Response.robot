@@ -11,6 +11,8 @@ Suite Setup   SDG_BNE_SUITE_SETUP
 Suite Teardown   SUITE_END
 #Force Tags   HELLOS
 #Default Tags   the
+Library           DateTime
+Library           String
 
 *** Variables ***
 
@@ -104,3 +106,23 @@ TC_001 FOR LOOP TEST CASE
        Log   ${KEY}
        Log   ${VALUE}
   END
+
+TC_001 Alphabets Numbers
+  [Tags]   ALPANUM
+  [Documentation]   This will print following Items
+  ...   {/n}1.Alphabets
+  ...   {/n}2.Numbers
+  @{alphabets}=  Create List   a   b   c   d
+  Log   ${alphabets}
+  @{numbers}=    Create List   1   2   3   4
+  Log   ${numbers}
+  FOR   ${alphabet}   IN   @{alphabets}
+     FOR   ${number}   IN  @{numbers}
+        Log   ${alphabet}${number}
+     END
+  END
+
+
+LAST_UPDATED_ON
+    [Tags]   TIME_DATE
+    TEST_ING   d=10089
