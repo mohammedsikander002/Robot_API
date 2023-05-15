@@ -4,6 +4,7 @@ Library  RequestsLibrary
 Library  JSONLibrary
 Library    Collections
 Library    requests
+Variables  ../Resources/variables.py
 Test Timeout    2s
 Test Setup    WELCOME_START
 Test Teardown    WELCOME_END
@@ -11,8 +12,11 @@ Suite Setup   SDG_BNE_SUITE_SETUP
 Suite Teardown   SUITE_END
 #Force Tags   HELLOS
 #Default Tags   the
+Library           DateTime
+Library           String
 
 *** Variables ***
+${ENVIRONMENT_VARIABLE}=     %${PATH}
 
 *** Test Cases ***
 TC_001_Get_ListUser
@@ -104,3 +108,38 @@ TC_001 FOR LOOP TEST CASE
        Log   ${KEY}
        Log   ${VALUE}
   END
+
+TC_001 Alphabets Numbers
+  [Tags]   ALPANUM
+  [Documentation]   This will print following Items
+  ...   {/n}1.Alphabets
+  ...   {/n}2.Numbers
+  @{alphabets}=  Create List   a   b   c   d
+  Log   ${alphabets}
+  @{numbers}=    Create List   1   2   3   4
+  Log   ${numbers}
+  FOR   ${alphabet}   IN   @{alphabets}
+     FOR   ${number}   IN  @{numbers}
+        Log   ${alphabet}${number}
+     END
+  END
+
+
+LAST_UPDATED_ON
+    [Tags]   TIME_DATE
+    TEST_ING_KEYWOD_WITH_ARGS   d=10089
+    Log   ${MY_VARIABLE_FROM_A_SEPARATE_VARIABLE_FILE}
+    Log   ${V1}
+    Log   ${V2}
+    Log   ${V3}
+    Log   ${ENVIRONMENT_VARIABLE}
+
+TESTCASE_003_ARGUMENTS
+   [Tags]   ARGUMENTS_TESTCASE
+   A keyword with a required argument   This is argument value
+   A keyword with an optional argument
+   A keyword with any number of arguments  A   B   C   D
+
+TEST_CASE_RETURN
+  [Tags]   RETURN
+  RETURN: Return a value from a keyword
