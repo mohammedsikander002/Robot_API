@@ -4,6 +4,7 @@ Library  RequestsLibrary
 Library  JSONLibrary
 Library    Collections
 Library    requests
+Variables  ../Resources/variables.py
 Test Timeout    2s
 Test Setup    WELCOME_START
 Test Teardown    WELCOME_END
@@ -15,6 +16,7 @@ Library           DateTime
 Library           String
 
 *** Variables ***
+${ENVIRONMENT_VARIABLE}=     %${PATH}
 
 *** Test Cases ***
 TC_001_Get_ListUser
@@ -126,3 +128,18 @@ TC_001 Alphabets Numbers
 LAST_UPDATED_ON
     [Tags]   TIME_DATE
     TEST_ING_KEYWOD_WITH_ARGS   d=10089
+    Log   ${MY_VARIABLE_FROM_A_SEPARATE_VARIABLE_FILE}
+    Log   ${V1}
+    Log   ${V2}
+    Log   ${V3}
+    Log   ${ENVIRONMENT_VARIABLE}
+
+TESTCASE_003_ARGUMENTS
+   [Tags]   ARGUMENTS_TESTCASE
+   A keyword with a required argument   This is argument value
+   A keyword with an optional argument
+   A keyword with any number of arguments  A   B   C   D
+
+TEST_CASE_RETURN
+  [Tags]   RETURN
+  RETURN: Return a value from a keyword
